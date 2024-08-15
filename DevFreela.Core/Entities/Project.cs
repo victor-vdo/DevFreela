@@ -11,7 +11,6 @@ namespace DevFreela.Core.Entities
             IdClient = idClient;
             IdFreelancer = idFreelancer;
             TotalCost = totalCost;
-
             CreatedAt = DateTime.Now;
             Status = ProjectStatusEnum.Created;
             Comments = new List<ProjectComment>();
