@@ -1,5 +1,6 @@
+using DevFreela.API.Filters;
 using DevFreela.Application.Commands.Projects.CreateProject;
-using DevFreela.Application.Validators;
+using DevFreela.Application.Validators.User;
 using DevFreela.Core.Repositories;
 using DevFreela.Infraestructure.Persistence.Repositories;
 using DevFreela.Infrastructure.Persistence;
@@ -16,7 +17,7 @@ builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<ISkillRepository, SkillRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-builder.Services.AddControllers()
+builder.Services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
     .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
 
 builder.Services.AddEndpointsApiExplorer();

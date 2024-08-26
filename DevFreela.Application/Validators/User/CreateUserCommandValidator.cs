@@ -2,7 +2,7 @@
 using FluentValidation;
 using System.Text.RegularExpressions;
 
-namespace DevFreela.Application.Validators
+namespace DevFreela.Application.Validators.User
 {
     public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {
