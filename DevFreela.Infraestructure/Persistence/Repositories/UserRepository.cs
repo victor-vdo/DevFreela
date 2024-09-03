@@ -31,5 +31,12 @@ namespace DevFreela.Infraestructure.Persistence.Repositories
 
             return user;
         }
+
+        public async Task<User> GetyByEmailAndPasswordAsync(string email, string password)
+        {
+            return await _dbContext
+                .Users.
+                SingleOrDefaultAsync(u => u.Email == email && u.Password == password);
+        }
     }
 }
